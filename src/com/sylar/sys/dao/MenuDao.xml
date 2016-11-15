@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sylar.sys.dao.MenuDao">
+    <resultMap id="menuMap" type="com.sylar.sys.model.Menu">
+        <id column="menu_id" jdbcType="INTEGER" property="menuId" />
+        <result column="menu_cncode" jdbcType="VARCHAR" property="menuCncode" />
+        <result column="menu_code" jdbcType="VARCHAR" property="menuCode" />
+        <result column="menu_name" jdbcType="VARCHAR" property="menuName" />
+        <result column="parent_id" jdbcType="INTEGER" property="parentId" />
+        <result column="action_url" jdbcType="VARCHAR" property="actionUrl" />
+        <association property="parentMenu" column="parent_id" select="getById"></association>
+   		<association property="childrenMenu" column="menu_id" select="getByParentId"></association>
+    </resultMap>
+    
+    <sql id="menu_column">
+        menu_id, menu_cncode, menu_code, menu_name, parent_id, action_url
+    </sql>
+    
+    <select id="getByParentId" parameterType="java.lang.Integer" resultMap="menuMap">
+        select 
+        <include refid="menu_column" />
+        from sys_menu
+        where parent_id = #{menuId}
+    </select>
+    
+    
+    <select id="getById" parameterType="java.lang.Integer" resultMap="menuMap">
+        select 
+        <include refid="menu_column" />
+        from sys_menu
+        where menu_id = #{menuId}
+    </select>
+  
+    <select id="getPage" resultMap="menuMap">
+        select 
+        <include refid="menu_column" />
+        from sys_menu
+        where 1 = 1
+    </select>
+    
+     <select id="getAll" resultMap="menuMap">
+        select 
+        <include refid="menu_column" />
+        from sys_menu
+        where 1 = 1
+    </select>
+    
+    <delete id="del" parameterType="java.lang.Integer">
+        delete from sys_menu where menu_id = #{menuId}
+    </delete>
+    
+    <insert id="add" parameterType="com.sylar.sys.model.Menu">
+        insert into sys_menu (
+            menu_cncode, menu_code, menu_name, parent_id, action_url 
+        )
+        values (
+            #{menuCncode}, #{menuCode}, #{menuName}, #{parentId}, #{actionUrl}, 
+        )
+    </insert>
+ 
+  	<update id="upd">
+  		update sys_menu set
+  		 menu_cncode = #{menuCncode},
+  		 menu_code = #{menuCode},
+  		 menu_name = #{menuName},
+  		 parent_id = #{parentId},
+  		 action_url = #{actionUrl} 
+  		where 
+  		 menu_id = #{menu_id} 
+  	</update>
+ 
+</mapper>

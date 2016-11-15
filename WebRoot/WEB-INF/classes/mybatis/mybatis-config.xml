@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD SQL Map Config 3.0//EN"  
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings> 
+        <setting name="cacheEnabled" value="true" /><!-- 全局映射器启用缓存 -->   
+        <setting name="useGeneratedKeys" value="true" /> 
+        <setting name="defaultExecutorType" value="REUSE" /> 
+    </settings>
+
+	<typeAliases>
+		<typeAlias type="java.lang.String" alias="string"/>
+		<typeAlias type="java.lang.Integer" alias="myInt"/>
+		<typeAlias type="java.lang.Long" alias="long"/>
+		<typeAlias type="java.util.Date" alias="date"/>
+		<typeAlias type="java.lang.Double" alias="double"/>
+		<typeAlias type="java.util.List" alias="list"/>
+		<typeAlias type="java.util.Map" alias="map"/>
+		<typeAlias type="java.util.HashMap" alias="hashMap"/>
+		<typeAlias type="java.util.Set" alias="set"/>
+		<typeAlias type="java.util.HashSet" alias="hashSet"/>
+	</typeAliases>
+	<!-- 
+	<plugins>
+        <plugin interceptor="com.sylar.general.inter.PageInterceptor">
+            <property name="databaseType" value="mysql" />
+        </plugin>
+    </plugins>
+	 -->
+</configuration>
