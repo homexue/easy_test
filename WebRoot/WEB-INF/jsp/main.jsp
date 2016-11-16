@@ -38,9 +38,12 @@
   <body class="easyui-layout" >
     	<div region="north" style="height:20%" border="false" split="true" href="${ctx }/toTop.do"  >
     	</div>
-    	<div region="west" href="${ctx }/toLeft.do" id="leftMenu" split="true" class="menudiv" style="width:30%;height:100%" title="我是左边">
+    	<div region="west" href="${ctx }/toLeft.do" id="leftMenu" split="true" class="menudiv" style="width:20%;height:100%" title="我是左边">
     	</div>
-    	<div region="center" href="${ctx }/toWelcome.do" id="main" split="true" >
+    	<div region="center"  class="easyui-tabs" style="border:none" id="main_tab" split="true" >
+    		<div title="这是个牛B的东东" style="padding:10px;" href="${ctx }/toWelcome.do">
+			</div>
     	</div>
+    	<div id="MyPopWindow" modal="true" shadow="false" minimizable="false" cache="false" maximizable="false" collapsible="false" resizable="false" style="margin: 0px;padding: 0px;overflow: auto;"></div>
   </body>
 </html>
