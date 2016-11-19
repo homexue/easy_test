@@ -12,3 +12,4 @@
 <script language="javascript" type="text/javascript" src="${ctx}/js/jquery-easyui-1.5/jquery.easyui.min.js"></script>
 <script language="javascript" type="text/javascript" src="${ctx}/js/jquery-easyui-1.5/locale/easyui-lang-zh_CN.js"></script>
 <script language="javascript" type="text/javascript" src="${ctx}/js/zTree_v3-master/js/jquery.ztree.all.js"></script>
+<script language="javascript" type="text/javascript" src="${ctx }/js/extends_ui.js"></script>

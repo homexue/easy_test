@@ -3,7 +3,6 @@ package com.sylar.general.action;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -12,14 +11,6 @@ import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 
 public class GeneralAction {
-	
-	
-	protected String getUUID() {
-		return UUID.randomUUID().toString().replaceAll("-", "");
-	}
-	
-	
-	
 	
 	/**
 	 * 日期转换

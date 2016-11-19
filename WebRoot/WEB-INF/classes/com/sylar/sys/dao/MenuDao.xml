@@ -24,14 +24,14 @@
     </select>
     
     
-    <select id="getById" parameterType="java.lang.Integer" resultMap="menuMap">
+    <select id="getById" parameterType="int" resultMap="menuMap">
         select 
         <include refid="menu_column" />
         from sys_menu
         where menu_id = #{menuId}
     </select>
   
-    <select id="getPage" resultMap="menuMap">
+    <select id="getPageList" resultMap="menuMap" parameterType="pageUtil">
         select 
         <include refid="menu_column" />
         from sys_menu
@@ -45,7 +45,7 @@
         where 1 = 1
     </select>
     
-    <delete id="del" parameterType="java.lang.Integer">
+    <delete id="del" parameterType="int">
         delete from sys_menu where menu_id = #{menuId}
     </delete>
     

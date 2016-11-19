@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 
+import com.sylar.general.common.page.PageUtil;
 import com.sylar.general.dao.BaseDao;
 import com.sylar.general.service.BaseService;
 
@@ -25,10 +26,6 @@ public class BaseServiceImple<T,PK> implements BaseService<T, PK> {
 	public void del(PK id) {
 		baseDao.del(id);
 	}
-
-//	public List<T> getPageList(DataGridModel dgm, T t) {
-//		return baseDao.getPageList(dgm,t);
-//	}
 
 	public T getById(PK id) {
 		return baseDao.getById(id);
@@ -52,8 +49,11 @@ public class BaseServiceImple<T,PK> implements BaseService<T, PK> {
 	}
 
 
-	public int getPageCount(T t) {
-		return this.baseDao.getPageCount(t);
+	@Override
+	public PageUtil getPageList(PageUtil page) {
+		List<T> list = this.baseDao.getPageList(page);
+		page.setRows(list);
+		return page;
 	}
 
 

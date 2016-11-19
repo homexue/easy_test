@@ -14,6 +14,11 @@ public class MainAction {
 		return "main";
 	}
 	
+	@RequestMapping("toTab")
+	public String toTab(){
+		return "tab";
+	}
+	
 	@RequestMapping("toWelcome")
 	public String toWelcome(){
 		return "main/welcome";

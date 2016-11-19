@@ -3,8 +3,7 @@
 
 <script>
 	var $menu_grid = $('#menu_grid').datagrid({
-	    height: '95%',
-	    title:'菜单列表', //标题
+		title:'菜单管理',
 	    iconCls:'icon-edit', //图标
 	    url: '${ctx}/menu/getPage.do',
 	    method: 'POST',
@@ -17,8 +16,8 @@
 	    rownumbers: true,
 	    pagination: true,
 	    nowrap: false,
-	    pageSize: 10,
-	    pageList: [10, 20, 50, 100, 150, 200],
+	    pageSize: 15,
+	    pageList: [15,30, 50, 100, 150, 200],
 	    showFooter: true,
 	    columns: [[
 	        { field: 'ck', checkbox: true },
@@ -37,30 +36,9 @@
 	    },
 	    onClickCell: function (rowIndex, field, value) {
 	        
-	    }
+	    },
+	    toolbar:'#menu_tool_bar'
 	});
-	
-	$menu_grid.datagrid({toolbar:[
-	   	{
-			text:'新增',
-			iconCls:'icon-add',
-			handler:function(){
-				addrow();
-			}
-		},'-',{
-			text:'更新',
-			iconCls:'icon-edit',
-			handler:function(){
-				updaterow();
-			}
-		},'-',{
-			text:'删除',
-			iconCls:'icon-remove',
-			handler:function(){
-				deleterow();
-			}
-		}
-	]})
 	
 	function doSearch(){
 		$menu_grid.datagrid('load',{
@@ -69,7 +47,23 @@
 		});
 	}
 </script>
-<div style="height:95%;width:100%">
-	<table id="menu_grid" style="height:100%;width:100%; border-bottom:1px">
+<div style="height:100%;width:100%;border-bottom:1px" >
+	<div id="menu_tool_bar" class="easyui-layout" style="width:30%;height:40%">
+		<div region="north" style="height:60%;padding:10px;" >
+			Date From: <input class="easyui-textbox" style="width:80px">
+			To: <input class="easyui-textbox" style="width:80px">
+			<a href="#" class="easyui-linkbutton" iconCls="icon-search">Search</a>
+		</div>
+		<div region="sourth" style="height:40%;position:relative; bottom:10px;" >
+			<a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true">添加</a>
+			<a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true">修改</a>
+			<a href="#" class="easyui-linkbutton" iconCls="icon-save" plain="true"></a>
+			<a href="#" class="easyui-linkbutton" iconCls="icon-cut" plain="true"></a>
+			<a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true"></a>
+		</div>
+	</div>
+	<table id="menu_grid" border="false" style="height:100%;width:100%; border-bottom:1px">
+		
 	</table>
+	
 </div>

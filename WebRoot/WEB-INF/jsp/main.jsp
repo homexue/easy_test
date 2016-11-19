@@ -36,13 +36,15 @@
 	
   </head>
   <body class="easyui-layout" >
-    	<div region="north" style="height:20%" border="false" split="true" href="${ctx }/toTop.do"  >
+    	<div region="north" style="height:10%" border="false" split="true" href="${ctx }/toTop.do"  >
     	</div>
-    	<div region="west" href="${ctx }/toLeft.do" id="leftMenu" split="true" class="menudiv" style="width:20%;height:100%" title="我是左边">
+    	<div region="west" href="${ctx }/toLeft.do" id="leftMenu" split="true" class="menudiv" style="width:15%;height:100%" title="我是左边">
     	</div>
-    	<div region="center"  class="easyui-tabs" style="border:none;height:auto" id="main_tab" split="true" >
-    		<div title="这是个牛B的东东" style="padding:10px;height:auto" href="${ctx }/toWelcome.do">
-			</div>
+    	<div  region="center" border="false" split="true" >
+	    	 <div class="easyui-tabs" pill="true" fit="true" id="main_tab" split="true" >
+	    		<div title="这是个牛B的东东" style="padding:10px;height:100%;width:100%" href="${ctx }/toWelcome.do">
+				</div>
+	    	 </div>
     	</div>
     	<div region="south" href="${ctx }/toBottom.do"  split="true" >
     		

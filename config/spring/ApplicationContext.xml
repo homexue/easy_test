@@ -71,6 +71,17 @@
 				<value>com/sylar/**/dao/*/*Dao.xml</value>
 			</list>
 		</property>
+		<property name="plugins">  
+            <array>  
+              <bean class="com.sylar.general.common.page.PageInterceptor">  
+                <property name="properties">  
+                  <value>  
+                    databaseType=mysql
+                  </value>  
+                </property>  
+              </bean>  
+            </array>  
+        </property> 
 	</bean>
 	
 	 <!-- MapperScannerConfigurer会自动扫描basePackage所提供的包下的interface -->
